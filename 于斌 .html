@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griswold v. Connecticut 案例分享</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* 导航栏样式 */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #3498db;
+        }
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        /* 标题样式 */
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin: 2rem 0 1rem;
+        }
+        .sub-title {
+            color: #3498db;
+            margin: 1.5rem 0 0.8rem;
+        }
+        /* 首页样式 */
+        .case-overview {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        .case-cover {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        /* 表格样式 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .info-table th, .info-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+        .info-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .info-table tr:last-child td {
+            border-bottom: none;
+        }
+        /* 折叠面板样式 */
+        .collapse-section {
+            background-color: white;
+            margin: 1rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .collapse-header {
+            padding: 1rem;
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .collapse-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        .collapse-content.active {
+            padding: 1rem;
+            max-height: 500px;
+        }
+        /* 法律句型样式 */
+        .legal-sentence {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .sentence-en {
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .sentence-zh {
+            color: #666;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        /* 联系我们样式 */
+        .contact {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        .contact-form {
+            margin-top: 1rem;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: none;
+        }
+        .contact-form button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #2980b9;
+        }
+        .reporter-info {
+            margin-top: 1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#overview">首页（案例总览）</a></li>
+            <li><a href="#case-analysis">案例分析</a></li>
+            <li><a href="#court-opinion">法庭意见书要素</a></li>
+            <li><a href="#bilingual-kb">双语法律知识库</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 首页（案例总览） -->
+        <section id="overview" class="case-overview">
+            <h1 class="section-title">GRISWOLD ET AL. V. CONNECTICUT 案例总览</h1>
+            <img src="https://images.unsplash.com/photo-1574623455142-303876d475c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="美国联邦最高法院" class="case-cover">
+            <p><strong>案例名称</strong>：GRISWOLD ET AL. V. CONNECTICUT（格里斯沃尔德诉康涅狄格州案）</p>
+            <p><strong>案号</strong>：381 U.S. 479 (1965)</p>
+            <p><strong>审理法院</strong>：United States Supreme Court（美国联邦最高法院）</p>
+            <p><strong>核心意义</strong>：首次通过“权利半影”理论确立婚姻隐私权，为后续隐私权相关案件（如堕胎权、同性婚姻权）奠定宪法基础</p>
+        </section>
+
+        <!-- 案例分析 -->
+        <section id="case-analysis">
+            <h2 class="section-title">案例分析</h2>
+            <h3 class="sub-title">核心工具</h3>
+            <table class="info-table">
+                <tr>
+                    <<th>类别</</th>
+                    <<th>具体内容</</th>
+                </tr>
+                <tr>
+                    <td>当事人信息</td>
+                    <td>上诉人：Griswold（康涅狄格州计划生育联盟执行董事）、Buxton（耶鲁医学院教授）<br>被上诉人：康涅狄格州政府</td>
+                </tr>
+                <tr>
+                    <td>核心诉求</td>
+                    <td>上诉人：主张康州帮助教唆法（禁止提供避孕建议）违宪<br>被上诉人：维护州法效力，认为该法旨在遏制婚外性关系</td>
+                </tr>
+                <tr>
+                    <td>争议法条</td>
+                    <td>康涅狄格州1958年修订法 §53-32、§54-196（禁止任何人使用、协助他人使用避孕工具或提供避孕建议，违者可处罚款或监禁）</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- 法庭意见书要素 -->
+        <section id="court-opinion">
+            <h2 class="section-title">法庭意见书要素</h2>
+            
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>1. Case Caption（案例标题）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>GRISWOLD ET AL. V. CONNECTICUT, 381 U.S. 479 (1965), Supreme Court of the United States.</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>2. Procedural History（诉讼历史）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>上诉人不服康涅狄格州最高上诉法院判决（维持对其的定罪），向美国联邦最高法院提起上诉；联邦最高法院认定本案具有管辖权（案号：379 U.S. 926），受理此案。</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>3. Facts（案件事实）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>上诉人Griswold（计划生育机构负责人）与Buxton（医生）向已婚夫妇提供避孕咨询服务，依据康涅狄格州 §53-32、§54-196被逮捕，每人被罚款100美元。</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>4. Legal Issues（法律争议点）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>康涅狄格州的反避孕法规是否因侵犯“婚姻隐私权”这一基本权利，而违反宪法第十四修正案的正当程序条款？</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>5. Holdings（判决结果）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>判决：康涅狄格州的反避孕法规违宪。理由是该法规侵犯了由宪法第一、第三、第四、第五、第九修正案“半影”所保护的婚姻隐私领域。</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>6. Reasoning（判决理由）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>最高法院援引<span class="highlight">Meyer v. Nebraska (1923)</span>（维护教育自由）和<span class="highlight">Pierce v. Society of Sisters (1925)</span>（维护家长选择学校的权利）两个先例，主张“基本自由”应包含婚姻隐私权；同时认为，州政府“遏制婚外性关系”的利益，不足以证明其对婚姻隐私的广泛侵犯具有正当性。</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>7. Concurring Opinions（协同意见）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>戈德堡大法官（首席大法官与布伦南大法官附议）强调，除“权利半影”理论外，<span class="highlight">第九修正案</span>（“宪法列举的某些权利，不得被解释为否定或轻视由人民保留的其他权利”）可作为婚姻隐私权的额外宪法依据。</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>8. Dissenting Opinions（反对意见）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>布莱克大法官提出异议，认为宪法中不存在“一般隐私权”；批评多数意见使用“半影”理论过度扩张司法权力，超出宪法文本的明确规定，属于“法官造法”。</p>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>9. Precedent Citations（援引先例）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <ul>
+                        <li><span class="highlight">Truax v. Raich (1915)</span>：确立“代表他人主张权利的诉讼资格”规则</li>
+                        <li><span class="highlight">NAACP v. Alabama (1958)</span>：认定第一修正案存在“权利半影”（如结社自由的隐含保护）</li>
+                        <li><span class="highlight">Skinner v. Oklahoma (1942)</span>：将生育权列为“基本个人自由”，受宪法保护</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-section">
+                <div class="collapse-header">
+                    <span>10. Disposition（判决处置）</span>
+                    <span>+</span>
+                </div>
+                <div class="collapse-content">
+                    <p>撤销康涅狄格州最高上诉法院的判决，宣告对上诉人的定罪无效。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 双语法律知识库 -->
+        <section id="bilingual-kb">
+            <h2 class="section-title">双语法律知识库</h2>
+            
+            <h3 class="sub-title">Key Terms（核心术语）</h3>
+            <table class="info-table">
+                <tr>
+                    <<th>英文术语</</th>
+                    <<th>中文翻译</</th>
+                    <<th>术语释义</</th>
+                </tr>
+                <tr>
+                    <td>Substantive Due Process</td>
+                    <td>实体正当程序</td>
+                    <td>关注法律内容合理性，要求政府行为不得侵犯公民基本权利，符合公平正义原则</td>
+                </tr>
+                <tr>
+                    <td>Penumbra</td>
+                    <td>半影</td>
+                    <td>宪法未明确列举但由明确权利“边缘辐射”形成的隐含权利，如本案中的婚姻隐私权</td>
+                </tr>
+                <tr>
+                    <td>Standing</td>
+                    <td>诉讼资格</td>
+                    <td>当事人需证明自身因案件结果受实际损害，才有权提起诉讼或上诉</td>
+                </tr>
+                <tr>
+                    <td>Fundamental Personal Liberties</td>
+                    <td>基本个人自由</td>
+                    <td>公民核心、不可侵犯的权利（如言论自由、婚姻隐私、生育权），受严格司法保护</td>
+                </tr>
+                <tr>
+                    <td>Strict Scrutiny</td>
+                    <td>严格审查</td>
+                    <td>司法审查高标准：政府需证明行为旨在实现“国家重大利益”且手段“必要”，适用于基本权利案件</td>
+                </tr>
+                <tr>
+                    <td>Marital Privacy</td>
+                    <td>婚姻隐私</td>
+                    <td>夫妻在婚姻关系中享有的自主权利，如生育规划、家庭生活不受政府过度干预</td>
+                </tr>
+            </table>
+
+            <h3 class="sub-title">典型法律句型</h3>
+            <div class="legal-sentence">
+                <p class="sentence-en">1. 刑法条文“行为+责任”表述：Any person who uses any drug, medicinal article or instrument for the purpose of preventing conception shall be fined not less than fifty dollars or imprisoned not less than sixty days nor more than one year or be both fined and imprisoned.</p>
+                <p class="sentence-zh">任何人为避孕目的使用任何药物、医疗用品或器械的，应被处以不低于50美元的罚款，或不低于60天且不超过1年的监禁，或同时处以罚款与监禁。</p>
+            </div>
+
+            <div class="legal-sentence">
+                <p class="sentence-en">2. 诉讼资格认定：We think that appellants have standing to raise the constitutional rights of the married people with whom they had a professional relationship.</p>
+                <p class="sentence-zh">本院认为，上诉人具备诉讼资格，有权代表与其存在职业关系的已婚人士主张宪法权利。</p>
+            </div>
+
+            <div class="legal-sentence">
+                <p class="sentence-en">3. 法律违宪判断：Such a law cannot stand in light of the familiar principle, so often applied by this Court, that a "governmental purpose to control or prevent activities constitutionally subject to state regulation may not be achieved by means which sweep unnecessarily broadly and thereby invade the area of protected freedoms."</p>
+                <p class="sentence-zh">依据本院常适用的一项公认原则，此类法律无效。该原则为：“政府若意图管控或禁止那些本可由州依法规制的行为，其采用的手段不得过度宽泛，以致侵犯受保护的自由领域。”</p>
+            </div>
+        </section>
+
+        <!-- 联系我们 -->
+        <section id="contact" class="contact">
+            <h2 class="section-title">联系我们</h2>
+            <p>若您对案例有疑问或想交流见解，可通过以下方式联系：</p>
+            <div class="contact-form">
+                <input type="text" placeholder="您的姓名" required>
+                <input type="email" placeholder="您的邮箱" required>
+                <textarea rows="5" placeholder="您的留言" required></textarea>
+                <button type="submit">提交留言</button>
+            </div>
+            <div class="reporter-info">
+                <p><strong>分享人（Reporter）</strong>：于斌</p>
+                <p><strong>联系方式</strong>：example@law.com（示例邮箱）</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 折叠面板功能
+        const collapseHeaders = document.querySelectorAll('.collapse-header');
+        collapseHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('span:last-child');
+                
+                content.classList.toggle('active');
+                icon.textContent = content.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // 导航栏平滑滚动
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
