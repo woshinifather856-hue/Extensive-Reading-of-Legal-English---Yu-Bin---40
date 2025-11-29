@@ -1,442 +1,1445 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Griswold v. Connecticut 案例分享</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft YaHei", Arial, sans-serif;
-        }
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        /* 导航栏样式 */
-        .navbar {
-            background-color: #2c3e50;
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .navbar ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .navbar a:hover {
-            color: #3498db;
-        }
-        /* 容器样式 */
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        /* 标题样式 */
-        .section-title {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-            margin: 2rem 0 1rem;
-        }
-        .sub-title {
-            color: #3498db;
-            margin: 1.5rem 0 0.8rem;
-        }
-        /* 首页样式 */
-        .case-overview {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        .case-cover {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        /* 表格样式 */
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .info-table th, .info-table td {
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-        .info-table th {
-            background-color: #3498db;
-            color: white;
-        }
-        .info-table tr:last-child td {
-            border-bottom: none;
-        }
-        /* 折叠面板样式 */
-        .collapse-section {
-            background-color: white;
-            margin: 1rem 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        .collapse-header {
-            padding: 1rem;
-            background-color: #2c3e50;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .collapse-content {
-            padding: 0 1rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s, padding 0.3s;
-        }
-        .collapse-content.active {
-            padding: 1rem;
-            max-height: 500px;
-        }
-        /* 法律句型样式 */
-        .legal-sentence {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .sentence-en {
-            color: #2c3e50;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-        .sentence-zh {
-            color: #666;
-        }
-        .highlight {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        /* 联系我们样式 */
-        .contact {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 2rem;
-        }
-        .contact-form {
-            margin-top: 1rem;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            resize: none;
-        }
-        .contact-form button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .contact-form button:hover {
-            background-color: #2980b9;
-        }
-        .reporter-info {
-            margin-top: 1rem;
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国共产党积极分子知识识记卡片</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义颜色和字体 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#C91F37', // 中国红
+            secondary: '#2C3E50',
+            accent: '#F39C12',
+            light: '#ECF0F1',
+            dark: '#1A202C'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .card-shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .btn-hover {
+        transition: all 0.3s ease;
+      }
+      .btn-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      }
+      .progress-bar {
+        transition: width 0.5s ease-in-out;
+      }
+      .question-card {
+        transition: all 0.3s ease;
+      }
+      .question-card:hover {
+        transform: translateX(5px);
+      }
+      .correct {
+        border-left: 4px solid #27AE60;
+      }
+      .incorrect {
+        border-left: 4px solid #E74C3C;
+      }
+      .answer-feedback {
+        transition: all 0.5s ease;
+        max-height: 0;
+        overflow: hidden;
+      }
+      .answer-feedback.show {
+        max-height: 1000px;
+      }
+    }
+  </style>
 </head>
-<body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#overview">首页（案例总览）</a></li>
-            <li><a href="#case-analysis">案例分析</a></li>
-            <li><a href="#court-opinion">法庭意见书要素</a></li>
-            <li><a href="#bilingual-kb">双语法律知识库</a></li>
-            <li><a href="#contact">联系我们</a></li>
-        </ul>
-    </nav>
-
-    <!-- 主容器 -->
-    <div class="container">
-        <!-- 首页（案例总览） -->
-        <section id="overview" class="case-overview">
-            <h1 class="section-title">GRISWOLD ET AL. V. CONNECTICUT 案例总览</h1>
-            <img src="https://images.unsplash.com/photo-1574623455142-303876d475c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="美国联邦最高法院" class="case-cover">
-            <p><strong>案例名称</strong>：GRISWOLD ET AL. V. CONNECTICUT（格里斯沃尔德诉康涅狄格州案）</p>
-            <p><strong>案号</strong>：381 U.S. 479 (1965)</p>
-            <p><strong>审理法院</strong>：United States Supreme Court（美国联邦最高法院）</p>
-            <p><strong>核心意义</strong>：首次通过“权利半影”理论确立婚姻隐私权，为后续隐私权相关案件（如堕胎权、同性婚姻权）奠定宪法基础</p>
-        </section>
-
-        <!-- 案例分析 -->
-        <section id="case-analysis">
-            <h2 class="section-title">案例分析</h2>
-            <h3 class="sub-title">核心工具</h3>
-            <table class="info-table">
-                <tr>
-                    <<th>类别</</th>
-                    <<th>具体内容</</th>
-                </tr>
-                <tr>
-                    <td>当事人信息</td>
-                    <td>上诉人：Griswold（康涅狄格州计划生育联盟执行董事）、Buxton（耶鲁医学院教授）<br>被上诉人：康涅狄格州政府</td>
-                </tr>
-                <tr>
-                    <td>核心诉求</td>
-                    <td>上诉人：主张康州帮助教唆法（禁止提供避孕建议）违宪<br>被上诉人：维护州法效力，认为该法旨在遏制婚外性关系</td>
-                </tr>
-                <tr>
-                    <td>争议法条</td>
-                    <td>康涅狄格州1958年修订法 §53-32、§54-196（禁止任何人使用、协助他人使用避孕工具或提供避孕建议，违者可处罚款或监禁）</td>
-                </tr>
-            </table>
-        </section>
-
-        <!-- 法庭意见书要素 -->
-        <section id="court-opinion">
-            <h2 class="section-title">法庭意见书要素</h2>
-            
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>1. Case Caption（案例标题）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>GRISWOLD ET AL. V. CONNECTICUT, 381 U.S. 479 (1965), Supreme Court of the United States.</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>2. Procedural History（诉讼历史）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>上诉人不服康涅狄格州最高上诉法院判决（维持对其的定罪），向美国联邦最高法院提起上诉；联邦最高法院认定本案具有管辖权（案号：379 U.S. 926），受理此案。</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>3. Facts（案件事实）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>上诉人Griswold（计划生育机构负责人）与Buxton（医生）向已婚夫妇提供避孕咨询服务，依据康涅狄格州 §53-32、§54-196被逮捕，每人被罚款100美元。</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>4. Legal Issues（法律争议点）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>康涅狄格州的反避孕法规是否因侵犯“婚姻隐私权”这一基本权利，而违反宪法第十四修正案的正当程序条款？</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>5. Holdings（判决结果）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>判决：康涅狄格州的反避孕法规违宪。理由是该法规侵犯了由宪法第一、第三、第四、第五、第九修正案“半影”所保护的婚姻隐私领域。</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>6. Reasoning（判决理由）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>最高法院援引<span class="highlight">Meyer v. Nebraska (1923)</span>（维护教育自由）和<span class="highlight">Pierce v. Society of Sisters (1925)</span>（维护家长选择学校的权利）两个先例，主张“基本自由”应包含婚姻隐私权；同时认为，州政府“遏制婚外性关系”的利益，不足以证明其对婚姻隐私的广泛侵犯具有正当性。</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>7. Concurring Opinions（协同意见）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>戈德堡大法官（首席大法官与布伦南大法官附议）强调，除“权利半影”理论外，<span class="highlight">第九修正案</span>（“宪法列举的某些权利，不得被解释为否定或轻视由人民保留的其他权利”）可作为婚姻隐私权的额外宪法依据。</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>8. Dissenting Opinions（反对意见）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>布莱克大法官提出异议，认为宪法中不存在“一般隐私权”；批评多数意见使用“半影”理论过度扩张司法权力，超出宪法文本的明确规定，属于“法官造法”。</p>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>9. Precedent Citations（援引先例）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <ul>
-                        <li><span class="highlight">Truax v. Raich (1915)</span>：确立“代表他人主张权利的诉讼资格”规则</li>
-                        <li><span class="highlight">NAACP v. Alabama (1958)</span>：认定第一修正案存在“权利半影”（如结社自由的隐含保护）</li>
-                        <li><span class="highlight">Skinner v. Oklahoma (1942)</span>：将生育权列为“基本个人自由”，受宪法保护</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="collapse-section">
-                <div class="collapse-header">
-                    <span>10. Disposition（判决处置）</span>
-                    <span>+</span>
-                </div>
-                <div class="collapse-content">
-                    <p>撤销康涅狄格州最高上诉法院的判决，宣告对上诉人的定罪无效。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 双语法律知识库 -->
-        <section id="bilingual-kb">
-            <h2 class="section-title">双语法律知识库</h2>
-            
-            <h3 class="sub-title">Key Terms（核心术语）</h3>
-            <table class="info-table">
-                <tr>
-                    <<th>英文术语</</th>
-                    <<th>中文翻译</</th>
-                    <<th>术语释义</</th>
-                </tr>
-                <tr>
-                    <td>Substantive Due Process</td>
-                    <td>实体正当程序</td>
-                    <td>关注法律内容合理性，要求政府行为不得侵犯公民基本权利，符合公平正义原则</td>
-                </tr>
-                <tr>
-                    <td>Penumbra</td>
-                    <td>半影</td>
-                    <td>宪法未明确列举但由明确权利“边缘辐射”形成的隐含权利，如本案中的婚姻隐私权</td>
-                </tr>
-                <tr>
-                    <td>Standing</td>
-                    <td>诉讼资格</td>
-                    <td>当事人需证明自身因案件结果受实际损害，才有权提起诉讼或上诉</td>
-                </tr>
-                <tr>
-                    <td>Fundamental Personal Liberties</td>
-                    <td>基本个人自由</td>
-                    <td>公民核心、不可侵犯的权利（如言论自由、婚姻隐私、生育权），受严格司法保护</td>
-                </tr>
-                <tr>
-                    <td>Strict Scrutiny</td>
-                    <td>严格审查</td>
-                    <td>司法审查高标准：政府需证明行为旨在实现“国家重大利益”且手段“必要”，适用于基本权利案件</td>
-                </tr>
-                <tr>
-                    <td>Marital Privacy</td>
-                    <td>婚姻隐私</td>
-                    <td>夫妻在婚姻关系中享有的自主权利，如生育规划、家庭生活不受政府过度干预</td>
-                </tr>
-            </table>
-
-            <h3 class="sub-title">典型法律句型</h3>
-            <div class="legal-sentence">
-                <p class="sentence-en">1. 刑法条文“行为+责任”表述：Any person who uses any drug, medicinal article or instrument for the purpose of preventing conception shall be fined not less than fifty dollars or imprisoned not less than sixty days nor more than one year or be both fined and imprisoned.</p>
-                <p class="sentence-zh">任何人为避孕目的使用任何药物、医疗用品或器械的，应被处以不低于50美元的罚款，或不低于60天且不超过1年的监禁，或同时处以罚款与监禁。</p>
-            </div>
-
-            <div class="legal-sentence">
-                <p class="sentence-en">2. 诉讼资格认定：We think that appellants have standing to raise the constitutional rights of the married people with whom they had a professional relationship.</p>
-                <p class="sentence-zh">本院认为，上诉人具备诉讼资格，有权代表与其存在职业关系的已婚人士主张宪法权利。</p>
-            </div>
-
-            <div class="legal-sentence">
-                <p class="sentence-en">3. 法律违宪判断：Such a law cannot stand in light of the familiar principle, so often applied by this Court, that a "governmental purpose to control or prevent activities constitutionally subject to state regulation may not be achieved by means which sweep unnecessarily broadly and thereby invade the area of protected freedoms."</p>
-                <p class="sentence-zh">依据本院常适用的一项公认原则，此类法律无效。该原则为：“政府若意图管控或禁止那些本可由州依法规制的行为，其采用的手段不得过度宽泛，以致侵犯受保护的自由领域。”</p>
-            </div>
-        </section>
-
-        <!-- 联系我们 -->
-        <section id="contact" class="contact">
-            <h2 class="section-title">联系我们</h2>
-            <p>若您对案例有疑问或想交流见解，可通过以下方式联系：</p>
-            <div class="contact-form">
-                <input type="text" placeholder="您的姓名" required>
-                <input type="email" placeholder="您的邮箱" required>
-                <textarea rows="5" placeholder="您的留言" required></textarea>
-                <button type="submit">提交留言</button>
-            </div>
-            <div class="reporter-info">
-                <p><strong>分享人（Reporter）</strong>：于斌</p>
-                <p><strong>联系方式</strong>：example@law.com（示例邮箱）</p>
-            </div>
-        </section>
+<body class="bg-gray-50 font-sans text-gray-800 min-h-screen flex flex-col">
+  <!-- 导航栏 -->
+  <nav class="bg-primary text-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+      <div class="flex items-center mb-3 md:mb-0">
+        <i class="fa fa-book text-2xl mr-2"></i>
+        <h1 class="text-xl md:text-2xl font-bold">党建知识识记卡片</h1>
+      </div>
+      <div class="flex space-x-1 md:space-x-4">
+        <a href="#home" class="nav-link px-3 py-2 rounded hover:bg-primary/80 btn-hover">首页</a>
+        <a href="#test" class="nav-link px-3 py-2 rounded hover:bg-primary/80 btn-hover">开始测试</a>
+        <a href="#wrong-questions" class="nav-link px-3 py-2 rounded hover:bg-primary/80 btn-hover">错题集</a>
+      </div>
     </div>
+  </nav>
 
-    <script>
-        // 折叠面板功能
-        const collapseHeaders = document.querySelectorAll('.collapse-header');
-        collapseHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('span:last-child');
-                
-                content.classList.toggle('active');
-                icon.textContent = content.classList.contains('active') ? '-' : '+';
-            });
-        });
+  <!-- 主内容区 -->
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <!-- 首页区域 -->
+    <section id="home" class="mb-16">
+      <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-6 md:mb-0">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">欢迎使用党建知识识记系统</h2>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              本系统专为中国共产党积极分子打造，包含丰富的党建知识题库，支持随机生成模拟测试题，帮助您高效学习和巩固党建知识。
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-6 space-y-2">
+              <li>每次模拟测试随机抽取100道题（60道选择、20道判断、20道填空）</li>
+              <li>每道题作答后实时显示答案和解析，即时巩固</li>
+              <li>自动记录错题，生成错题集方便回顾复习</li>
+              <li>实时显示答题进度和得分情况</li>
+              <li>支持错题重做功能，强化知识点记忆</li>
+            </ul>
+            <a href="#test" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-medium btn-hover">
+              <i class="fa fa-play-circle mr-2"></i>开始测试
+            </a>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <img src="https://picsum.photos/id/1058/600/400" alt="党建学习" class="rounded-lg shadow-md max-w-full h-auto">
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // 导航栏平滑滚动
-        document.querySelectorAll('.navbar a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            });
+    <!-- 测试区域 -->
+    <section id="test" class="mb-16 hidden">
+      <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+        <!-- 测试进度 -->
+        <div class="mb-6">
+          <div class="flex justify-between mb-2">
+            <h2 class="text-xl font-bold text-primary">
+              <i class="fa fa-question-circle mr-2"></i>模拟测试
+            </h2>
+            <div class="text-sm text-gray-600">
+              题目: <span id="current-question">1</span>/100 
+              得分: <span id="current-score">0</span>
+            </div>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div id="progress-fill" class="progress-bar bg-primary h-2.5 rounded-full" style="width: 1%"></div>
+          </div>
+          <div class="flex justify-between text-xs text-gray-500 mt-1">
+            <span id="question-type">选择题</span>
+            <span id="time-remaining">剩余时间: 40分钟</span>
+          </div>
+        </div>
+
+        <!-- 题目区域 -->
+        <div id="question-container" class="mb-8">
+          <!-- 题目将通过JS动态生成 -->
+          <div class="question-card p-4 border rounded-lg mb-6">
+            <h3 class="text-lg font-medium mb-4" id="question-text">加载题目中...</h3>
+            <div id="options-container" class="space-y-2 mb-4">
+              <!-- 选项将通过JS动态生成 -->
+            </div>
+            <div id="answer-input-container" class="hidden">
+              <input type="text" id="answer-input" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none" placeholder="请输入答案">
+            </div>
+            <div id="judge-options" class="hidden flex space-x-4">
+              <button class="judge-btn bg-green-500 text-white px-4 py-2 rounded-lg btn-hover" data-answer="true">
+                <i class="fa fa-check mr-1"></i>正确
+              </button>
+              <button class="judge-btn bg-red-500 text-white px-4 py-2 rounded-lg btn-hover" data-answer="false">
+                <i class="fa fa-times mr-1"></i>错误
+              </button>
+            </div>
+            
+            <!-- 新增：答案反馈区域 -->
+            <div id="answer-feedback" class="answer-feedback mt-4 p-4 rounded-lg bg-gray-50 border-l-4">
+              <div id="feedback-header" class="font-medium mb-2 flex items-center"></div>
+              <div id="feedback-content" class="text-sm space-y-2"></div>
+              <div id="feedback-explanation" class="mt-3 text-xs text-gray-600 italic"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 答题按钮 -->
+        <div class="flex justify-between">
+          <button id="prev-question" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed btn-hover" disabled>
+            <i class="fa fa-arrow-left mr-1"></i>上一题
+          </button>
+          <button id="check-answer" class="bg-accent text-white px-4 py-2 rounded-lg btn-hover hidden">
+            <i class="fa fa-eye mr-1"></i>查看答案
+          </button>
+          <button id="next-question" class="bg-primary text-white px-4 py-2 rounded-lg btn-hover">
+            提交答案 <i class="fa fa-check mr-1"></i>
+          </button>
+          <button id="submit-test" class="bg-accent text-white px-4 py-2 rounded-lg btn-hover hidden">
+            <i class="fa fa-paper-plane mr-1"></i>提交试卷
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 测试结果区域 -->
+    <section id="test-result" class="mb-16 hidden">
+      <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-primary mb-4">
+            <i class="fa fa-bar-chart mr-2"></i>测试结果
+          </h2>
+          <div class="flex flex-wrap justify-center gap-6 mb-6">
+            <div class="bg-light rounded-lg p-4 w-40 text-center">
+              <div class="text-3xl font-bold text-primary" id="total-score">0</div>
+              <div class="text-sm text-gray-600">总分</div>
+            </div>
+            <div class="bg-light rounded-lg p-4 w-40 text-center">
+              <div class="text-3xl font-bold text-green-500" id="correct-count">0</div>
+              <div class="text-sm text-gray-600">做对题目</div>
+            </div>
+            <div class="bg-light rounded-lg p-4 w-40 text-center">
+              <div class="text-3xl font-bold text-red-500" id="wrong-count">0</div>
+              <div class="text-sm text-gray-600">做错题目</div>
+            </div>
+            <div class="bg-light rounded-lg p-4 w-40 text-center">
+              <div class="text-3xl font-bold text-accent" id="accuracy">0%</div>
+              <div class="text-sm text-gray-600">正确率</div>
+            </div>
+          </div>
+          <div class="flex justify-center space-x-4">
+            <a href="#test" id="restart-test" class="bg-primary text-white px-6 py-3 rounded-lg font-medium btn-hover">
+              <i class="fa fa-refresh mr-2"></i>重新测试
+            </a>
+            <a href="#wrong-questions" class="bg-accent text-white px-6 py-3 rounded-lg font-medium btn-hover">
+              <i class="fa fa-list-alt mr-2"></i>查看错题集
+            </a>
+          </div>
+        </div>
+
+        <!-- 错题预览 -->
+        <div class="mt-8">
+          <h3 class="text-xl font-bold mb-4 flex items-center">
+            <i class="fa fa-exclamation-circle text-red-500 mr-2"></i>本次测试错题（前10题）
+          </h3>
+          <div id="wrong-preview" class="space-y-4">
+            <!-- 错题预览将通过JS动态生成 -->
+            <p class="text-gray-500 italic">暂无错题</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 错题集区域 -->
+    <section id="wrong-questions" class="mb-16 hidden">
+      <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold text-primary">
+            <i class="fa fa-bookmark mr-2"></i>错题集
+          </h2>
+          <div class="flex space-x-2">
+            <button id="clear-wrong" class="bg-red-500 text-white px-4 py-2 rounded-lg text-sm btn-hover">
+              <i class="fa fa-trash mr-1"></i>清空错题
+            </button>
+            <button id="review-wrong" class="bg-primary text-white px-4 py-2 rounded-lg text-sm btn-hover">
+              <i class="fa fa-repeat mr-1"></i>错题重做
+            </button>
+          </div>
+        </div>
+
+        <!-- 错题统计 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div class="bg-light rounded-lg p-4">
+            <div class="text-lg font-bold text-primary" id="total-wrong-count">0</div>
+            <div class="text-sm text-gray-600">总错题数</div>
+          </div>
+          <div class="bg-light rounded-lg p-4">
+            <div class="text-lg font-bold text-primary" id="wrong-choices">0</div>
+            <div class="text-sm text-gray-600">选择题错题</div>
+          </div>
+          <div class="bg-light rounded-lg p-4">
+            <div class="text-lg font-bold text-primary" id="wrong-judges">0</div>
+            <div class="text-sm text-gray-600">判断题错题</div>
+            <div class="text-lg font-bold text-primary mt-2" id="wrong-fills">0</div>
+            <div class="text-sm text-gray-600">填空题错题</div>
+          </div>
+        </div>
+
+        <!-- 错题列表 -->
+        <div id="wrong-questions-list" class="space-y-6">
+          <!-- 错题列表将通过JS动态生成 -->
+          <div class="text-center text-gray-500 py-8">
+            <i class="fa fa-check-circle text-green-500 text-4xl mb-2"></i>
+            <p>太棒了！暂无错题记录</p>
+            <p class="text-sm mt-2">开始测试并做错题目后，将在这里显示</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-secondary text-white py-6">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p class="text-sm">© 2025 中国共产党积极分子知识识记系统</p>
+          <p class="text-xs text-gray-300 mt-1">专注党建知识学习，助力积极分子成长</p>
+        </div>
+        <div class="flex space-x-4">
+          <a href="#" class="text-white hover:text-accent transition-colors">
+            <i class="fa fa-question-circle"></i> 帮助中心
+          </a>
+          <a href="#" class="text-white hover:text-accent transition-colors">
+            <i class="fa fa-book"></i> 学习资源
+          </a>
+          <a href="#" class="text-white hover:text-accent transition-colors">
+            <i class="fa fa-envelope"></i> 联系我们
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 题库数据 - 从文档中提取的1000+道题目，这里展示部分作为示例
+    const questionBank = {
+      // 选择题 (600+道，这里展示部分)
+      choiceQuestions: [
+        {
+          id: 1,
+          question: "下列事件发生的先后顺序是（ ）。①提出社会主义初级阶段的理论②作出实行改革开放的决策③提出建立社会主义市场经济体制④上海浦东成为对外开放区",
+          options: [
+            "A、②①④③",
+            "B、③②①④", 
+            "C、④③②①", 
+            "D、①④③②"
+          ],
+          answer: "A",
+          explanation: "党在改革开放和社会主义现代化建设新时期：1978年十一届三中全会作出改革开放决策，1987年十三大提出社会主义初级阶段理论，1990年上海浦东成为对外开放区，1992年十四大提出建立社会主义市场经济体制。"
+        },
+        {
+          id: 2,
+          question: "新中国建立后，对国民党政府同各国建立的外交关系部分予以（ ）。",
+          options: [
+            "A、承认",
+            "B、不承认",
+            "C、部分承认",
+            "D、有区别对待"
+          ],
+          answer: "B",
+          explanation: "新中国的外交政策：新中国成立后实行“另起炉灶”的外交方针，不承认国民党政府同各国建立的旧的外交关系，而要在新的基础上同各国另行建立新的外交关系。"
+        },
+        {
+          id: 3,
+          question: "\"重大战略机遇期\"正式出现在党的文件中是在（ ）。",
+          options: [
+            "A、十五大",
+            "B、十五届六中全会",
+            "C、十六大",
+            "D、十七大"
+          ],
+          answer: "C",
+          explanation: "\"重大战略机遇期\"的提出：党的十六大报告明确指出，21世纪头20年，对我国来说，是一个必须紧紧抓住并且可以大有作为的重要战略机遇期。"
+        },
+        {
+          id: 4,
+          question: "抗日战争时期，中国共产党提出了\"发展进步势力，争取中间势力，孤立顽固势力\"的方针。以下阶级属于\"中间势力\"的是（ ）。",
+          options: [
+            "A、无产阶级",
+            "B、小资产阶级",
+            "C、开明绅士、民族资产阶级",
+            "D、官僚资产阶级"
+          ],
+          answer: "C",
+          explanation: "抗日民族统一战线策略：进步势力指工人、农民和城市小资产阶级；中间势力指民族资产阶级、开明绅士和地方实力派；顽固势力指大地主大资产阶级的抗日派。"
+        },
+        {
+          id: 5,
+          question: "从1999年开始，全党在（ ）领导班子和领导干部中，以整风精神分期分批深入开展了以\"三讲\"为主要内容的党性党风教育。",
+          options: [
+            "A、县处级以上",
+            "B、地、市以上",
+            "C、省部以上",
+            "D、乡以上"
+          ],
+          answer: "A",
+          explanation: "\"三讲\"教育：1999年开始的“讲学习、讲政治、讲正气”教育活动，主要在县级以上党政领导班子和领导干部中开展。"
+        },
+        {
+          id: 6,
+          question: "皖南事变发生后，中共对国民党顽固派破坏抗战的罪行采取了坚决回击的方针，其主要举措是（ ）。",
+          options: [
+            "A、与国民党完全停止合作",
+            "B、把顽固派作为主要军事打击对象",
+            "C、重建新四军军部",
+            "D、对国民党实行全面军事进攻"
+          ],
+          answer: "C",
+          explanation: "抗日战争|新四军：1941年皖南事变后，中共中央决定重建新四军军部，任命陈毅为代军长，刘少奇为政治委员，继续坚持华中抗战。"
+        },
+        {
+          id: 7,
+          question: "中共七大指出党的政治路线是（ ）。",
+          options: [
+            "A、\"放手发动群众，壮大人民力量，在我党的领导下，打败日本侵略者，解放全国人民，建立一个新民主主义的新中国\"",
+            "B、\"放手发动群众，实行土地革命，建立苏维埃\"",
+            "C、\"放手发动群众，夺取抗战的最后胜利\"",
+            "D、\"放手发动群众，建立一个新民主主义的新中国\""
+          ],
+          answer: "A",
+          explanation: "党的第七次全国代表大会：1945年中共七大制定了党的政治路线，为争取抗日战争的胜利和新民主主义革命在全国的胜利提供了可靠的保证。"
+        },
+        {
+          id: 8,
+          question: "中共十一届三中全会以后，对我国农村实行家庭联产承包责任制的表述，最确切的是（ ）。",
+          options: [
+            "A、符合现代化农业生产的需要",
+            "B、对土地所有制的重大变革",
+            "C、我国农村产业结构的重大调整",
+            "D、与当时农村生产力相适应的重大措施"
+          ],
+          answer: "D",
+          explanation: "家庭联产承包责任制：家庭联产承包责任制是在坚持土地公有制的基础上，改变经营管理方式，实行分户经营、自负盈亏，适应了当时农村生产力发展水平。"
+        },
+        {
+          id: 9,
+          question: "对毛泽东关于\"兵民是胜利之本\"的论述，下列选项中最准确的解释是（ ）。",
+          options: [
+            "A、军队和老百姓是胜利的根本保证",
+            "B、武装民众是胜利的根本保证",
+            "C、政府和军队是胜利的根本保障",
+            "D、民兵是夺取胜利的基本力量"
+          ],
+          answer: "B",
+          explanation: "毛泽东思想：“兵民是胜利之本”出自《论持久战》，强调只有把群众武装起来，才能形成真正的铜墙铁壁，取得抗日战争的胜利。"
+        },
+        {
+          id: 10,
+          question: "无产阶级在革命统一战线中的领导权，主要是指中国共产党对于全国人民和各革命阶级的（ ）。",
+          options: [
+            "A、思想领导",
+            "B、组织领导",
+            "C、政治领导",
+            "D、军事领导"
+          ],
+          answer: "C",
+          explanation: "毛泽东思想：无产阶级的领导权主要是政治领导，即政治原则、政治方向和重大政策的领导，通过制定正确的路线方针政策来实现。"
+        },
+        // 更多选择题... (实际使用时需要补充到600+道)
+      ],
+      
+      // 判断题 (200+道，这里展示部分)
+      judgeQuestions: [
+        {
+          id: 1,
+          question: "十八届四中全会强调，坚持依法治国首先要坚持司法独立和司法公正。",
+          answer: false,
+          explanation: "党的十八届四中全会：坚持依法治国首先要坚持依宪治国，坚持依法执政首先要坚持依宪执政，而非单纯强调司法独立。"
+        },
+        {
+          id: 2,
+          question: "中国共产党十一届三中全会中心议题是讨论把全党工作重点转移到社会主义现代化建设上来。",
+          answer: true,
+          explanation: "党的十一届三中全会：1978年十一届三中全会果断结束“以阶级斗争为纲”，作出把党和国家工作中心转移到经济建设上来、实行改革开放的历史性决策。"
+        },
+        {
+          id: 3,
+          question: "标志着我党胜利地完成了指导思想上的拨乱反正是中共十一届六中全会通过的《关于建国以来党的若干历史问题的决议》。",
+          answer: true,
+          explanation: "《关于建国以来党的若干历史问题的决议》：1981年十一届六中全会通过该决议，科学评价了毛泽东和毛泽东思想的历史地位，标志着党在指导思想上的拨乱反正胜利完成。"
+        },
+        {
+          id: 4,
+          question: "抗日战争时期的统一战线，其政治基础是共同抗日。",
+          answer: true,
+          explanation: "抗日民族统一战线：抗日民族统一战线的政治基础是抗日救国，一切主张抗日、反对投降的阶级、阶层和集团都可以加入统一战线。"
+        },
+        {
+          id: 5,
+          question: "正式确定\"一个中心、两个基本点\"为党的基本路线是在中共十三大上。",
+          answer: true,
+          explanation: "党的十三大：1987年中共十三大系统阐述了社会主义初级阶段的理论，明确概括了党在社会主义初级阶段的基本路线：一个中心、两个基本点。"
+        },
+        {
+          id: 6,
+          question: "区别新民主主义革命与旧民主主义革命的根本标志是革命领导权不同。",
+          answer: true,
+          explanation: "新民主主义革命的性质和特点：新旧民主主义革命的根本区别在于领导阶级不同，新民主主义革命是无产阶级领导的，旧民主主义革命是资产阶级领导的。"
+        },
+        {
+          id: 7,
+          question: "正式确定每年的7月1日为中国共产党的建党日是在1949年新中国成立时。",
+          answer: false,
+          explanation: "党的第一次全国代表大会：1941年党中央正式将7月1日定为中国共产党成立纪念日，并非1949年新中国成立时。"
+        },
+        {
+          id: 8,
+          question: "新文化运动的基本口号是反帝反封建。",
+          answer: false,
+          explanation: "新文化运动：新文化运动的基本口号是“民主”和“科学”（德先生和赛先生），五四运动才明确提出反帝反封建的口号。"
+        },
+        {
+          id: 9,
+          question: "中国共产党第一次代表大会召开的时间是1921年7月1日。",
+          answer: false,
+          explanation: "党的第一次全国代表大会：中共一大实际召开时间是1921年7月23日，7月1日是后来确定的建党纪念日。"
+        },
+        {
+          id: 10,
+          question: "社会主义政治文明区别于资本主义政治文明的本质特征是：坚持党的领导、人民当家作主和依法治国的有机统一。",
+          answer: true,
+          explanation: "发展社会主义政治文明：这三者的有机统一是中国特色社会主义政治发展的必然要求，也是我国政治文明区别于资本主义政治文明的本质特征。"
+        },
+        // 更多判断题... (实际使用时需要补充到200+道)
+      ],
+      
+      // 填空题 (200+道，这里展示部分)
+      fillQuestions: [
+        {
+          id: 1,
+          question: "中共十一届三中全会认真讨论了\"文化大革命\"中发生的一些重大政治事件，以及\"文化大革命\"前遗留下来的某些历史问题，决定撤销中央在1976年发出的有关（__________）的错误文件。",
+          answer: "所谓\"反击右倾翻案风\"运动和处理天安门事件",
+          explanation: "党的十一届三中全会：全会撤销了中央发出的有关“反击右倾翻案风”运动和天安门事件的错误文件，为彻底纠正“文化大革命”的错误奠定了基础。"
+        },
+        {
+          id: 2,
+          question: "1947年5月，以（__________）为高潮，反饥饿、反内战、反迫害运动扩大到国民党统治区60多个大中城市，形成了人民革命的第二条战线。",
+          answer: "五二○运动",
+          explanation: "解放战争|五二○运动：1947年5月20日，北平、上海、南京等地学生举行反饥饿、反内战游行，遭到国民党镇压，史称五二○运动，标志着第二条战线的形成。"
+        },
+        {
+          id: 3,
+          question: "1992年党的十四大提出了我国经济体制改革的目标是建立（__________）。",
+          answer: "社会主义市场经济体制",
+          explanation: "建立社会主义市场经济体制目标的提出：1992年中共十四大明确提出，我国经济体制改革的目标是建立社会主义市场经济体制。"
+        },
+        {
+          id: 4,
+          question: "中共七大特别强调，党员必须全心全意为中国人民服务，反对脱离群众的命令主义、官僚主义和（__________）的错误倾向。",
+          answer: "军阀主义",
+          explanation: "党的第七次全国代表大会：中共七大强调密切联系群众的重要性，反对命令主义、官僚主义和军阀主义，坚持全心全意为人民服务的宗旨。"
+        },
+        {
+          id: 5,
+          question: "把（__________）作为党的指导思想并写入党章，是中共七大的历史性贡献。",
+          answer: "毛泽东思想",
+          explanation: "确立毛泽东思想为党的指导思想：1945年中共七大把毛泽东思想确立为党的指导思想并写入党章，这是七大的历史性贡献。"
+        },
+        {
+          id: 6,
+          question: "我们党在十一届三中全会上毅然抛弃\"以阶级斗争为纲\"这个不适用于社会主义社会的\"左\"的错误方针，把党和国家的工作中心转移到（__________）上来。",
+          answer: "经济建设",
+          explanation: "党的十一届三中全会：全会作出了把党和国家工作中心转移到经济建设上来、实行改革开放的历史性决策。"
+        },
+        {
+          id: 7,
+          question: "20世纪的中国经历了三次历史性的巨变：辛亥革命、中华人民共和国成立和中国共产党十一届三中全会后的改革开放，同时也出现了三位伟人，分别是孙中山、毛泽东和（__________）。",
+          answer: "邓小平",
+          explanation: "中国的近现代历史：三次历史性巨变分别由孙中山（辛亥革命）、毛泽东（新中国成立和社会主义制度建立）、邓小平（改革开放）引领。"
+        },
+        {
+          id: 8,
+          question: "中国无产阶级的\"特殊优点\"在于深受帝国主义、封建主义和官僚资本主义的三重压迫、人数虽少但比较集中以及（__________）。",
+          answer: "与农民有着天然的联系",
+          explanation: "中国无产阶级的诞生及其特点：中国无产阶级与农民阶级有着天然的联系，便于结成工农联盟，这是其重要的特殊优点。"
+        },
+        {
+          id: 9,
+          question: "1956年至1966年，中国人民和中国共产党人坚持独立自主、自力更生，顶住压力、战胜困难，涌现出的光辉榜样有焦裕禄、王进喜和（__________）。",
+          answer: "雷锋",
+          explanation: "社会主义建设的成就和主要经验：这一时期涌现出焦裕禄（县委书记的榜样）、王进喜（铁人）、雷锋（全心全意为人民服务的楷模）等先进人物。"
+        },
+        {
+          id: 10,
+          question: "十八届四中全会指出，实现依法治国总目标，必须坚持中国共产党的领导、坚持人民主体地位、坚持法律面前人人平等和（__________）。",
+          answer: "坚持依法治国和以德治国相结合",
+          explanation: "党的十八届四中全会：实现依法治国总目标必须坚持的原则包括：坚持中国共产党的领导、坚持人民主体地位、坚持法律面前人人平等、坚持依法治国和以德治国相结合、坚持从中国实际出发。"
+        },
+        // 更多填空题... (实际使用时需要补充到200+道)
+      ]
+    };
+
+    // 全局变量
+    let currentTest = {
+      questions: [],       // 当前测试的题目列表
+      currentIndex: 0,     // 当前题目索引
+      userAnswers: [],     // 用户答案
+      score: 0,            // 当前得分
+      startTime: null,     // 开始时间
+      timer: null,         // 计时器
+      answeredQuestions: [] // 已答题目的对错状态
+    };
+
+    // DOM元素
+    const navLinks = document.querySelectorAll('.nav-link');
+    const homeSection = document.getElementById('home');
+    const testSection = document.getElementById('test');
+    const testResultSection = document.getElementById('test-result');
+    const wrongQuestionsSection = document.getElementById('wrong-questions');
+    
+    const questionContainer = document.getElementById('question-container');
+    const questionText = document.getElementById('question-text');
+    const optionsContainer = document.getElementById('options-container');
+    const answerInputContainer = document.getElementById('answer-input-container');
+    const answerInput = document.getElementById('answer-input');
+    const judgeOptions = document.getElementById('judge-options');
+    const questionType = document.getElementById('question-type');
+    
+    // 新增：答案反馈元素
+    const answerFeedback = document.getElementById('answer-feedback');
+    const feedbackHeader = document.getElementById('feedback-header');
+    const feedbackContent = document.getElementById('feedback-content');
+    const feedbackExplanation = document.getElementById('feedback-explanation');
+    const checkAnswerBtn = document.getElementById('check-answer');
+    
+    const currentQuestionEl = document.getElementById('current-question');
+    const currentScoreEl = document.getElementById('current-score');
+    const progressFill = document.getElementById('progress-fill');
+    const timeRemainingEl = document.getElementById('time-remaining');
+    
+    const prevQuestionBtn = document.getElementById('prev-question');
+    const nextQuestionBtn = document.getElementById('next-question');
+    const submitTestBtn = document.getElementById('submit-test');
+    
+    const totalScoreEl = document.getElementById('total-score');
+    const correctCountEl = document.getElementById('correct-count');
+    const wrongCountEl = document.getElementById('wrong-count');
+    const accuracyEl = document.getElementById('accuracy');
+    const wrongPreviewEl = document.getElementById('wrong-preview');
+    
+    const restartTestBtn = document.getElementById('restart-test');
+    const clearWrongBtn = document.getElementById('clear-wrong');
+    const reviewWrongBtn = document.getElementById('review-wrong');
+    const wrongQuestionsList = document.getElementById('wrong-questions-list');
+    
+    const totalWrongCountEl = document.getElementById('total-wrong-count');
+    const wrongChoicesEl = document.getElementById('wrong-choices');
+    const wrongJudgesEl = document.getElementById('wrong-judges');
+    const wrongFillsEl = document.getElementById('wrong-fills');
+
+    // 导航切换
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        
+        // 停止当前测试计时器
+        if (currentTest.timer) {
+          clearInterval(currentTest.timer);
+          currentTest.timer = null;
+        }
+        
+        // 隐藏所有区域
+        homeSection.classList.add('hidden');
+        testSection.classList.add('hidden');
+        testResultSection.classList.add('hidden');
+        wrongQuestionsSection.classList.add('hidden');
+        
+        // 显示目标区域
+        document.querySelector(targetId).classList.remove('hidden');
+        
+        // 如果是测试区域，初始化测试
+        if (targetId === '#test' && currentTest.questions.length === 0) {
+          initTest();
+        }
+        
+        // 如果是错题集区域，加载错题
+        if (targetId === '#wrong-questions') {
+          loadWrongQuestions();
+        }
+      });
+    });
+
+    // 初始化测试
+    function initTest() {
+      // 随机抽取题目：60道选择，20道判断，20道填空
+      const selectedChoices = getRandomQuestions(questionBank.choiceQuestions, 60);
+      const selectedJudges = getRandomQuestions(questionBank.judgeQuestions, 20);
+      const selectedFills = getRandomQuestions(questionBank.fillQuestions, 20);
+      
+      // 合并题目并打乱顺序
+      currentTest.questions = [...selectedChoices, ...selectedJudges, ...selectedFills]
+        .sort(() => Math.random() - 0.5);
+      
+      currentTest.currentIndex = 0;
+      currentTest.userAnswers = Array(currentTest.questions.length).fill(null);
+      currentTest.answeredQuestions = Array(currentTest.questions.length).fill(null);
+      currentTest.score = 0;
+      currentTest.startTime = new Date();
+      
+      // 启动计时器（40分钟倒计时）
+      startTimer();
+      
+      // 显示第一题
+      showCurrentQuestion();
+      
+      // 更新进度
+      updateProgress();
+    }
+
+    // 从题库中随机抽取指定数量的题目
+    function getRandomQuestions(questionArray, count) {
+      // 创建题库副本
+      const questionsCopy = [...questionArray];
+      const selected = [];
+      
+      // 随机抽取题目
+      for (let i = 0; i < count && questionsCopy.length > 0; i++) {
+        const randomIndex = Math.floor(Math.random() * questionsCopy.length);
+        selected.push(questionsCopy.splice(randomIndex, 1)[0]);
+      }
+      
+      return selected;
+    }
+
+    // 显示当前题目
+    function showCurrentQuestion() {
+      if (currentTest.questions.length === 0) return;
+      
+      // 隐藏答案反馈
+      answerFeedback.classList.remove('show');
+      checkAnswerBtn.classList.add('hidden');
+      nextQuestionBtn.textContent = '提交答案 <i class="fa fa-check mr-1"></i>';
+      
+      const currentQuestion = currentTest.questions[currentTest.currentIndex];
+      
+      // 更新题目文本
+      questionText.textContent = `(${currentTest.currentIndex + 1}/100) ${currentQuestion.question}`;
+      
+      // 重置所有选项容器
+      optionsContainer.innerHTML = '';
+      optionsContainer.classList.add('hidden');
+      answerInputContainer.classList.add('hidden');
+      judgeOptions.classList.add('hidden');
+      
+      // 根据题目类型显示不同的答题区域
+      if (currentQuestion.options) {
+        // 选择题
+        questionType.textContent = '选择题';
+        optionsContainer.classList.remove('hidden');
+        
+        // 创建选项按钮
+        currentQuestion.options.forEach(option => {
+          const optionBtn = document.createElement('button');
+          optionBtn.className = `w-full text-left p-3 border rounded-lg hover:bg-gray-50 btn-hover ${
+            currentTest.userAnswers[currentTest.currentIndex] === option.charAt(0) ? 'bg-primary/10 border-primary' : ''
+          }`;
+          optionBtn.innerHTML = `<span class="font-medium mr-2">${option.charAt(0)}</span>${option.slice(2)}`;
+          
+          optionBtn.addEventListener('click', () => {
+            currentTest.userAnswers[currentTest.currentIndex] = option.charAt(0);
+            showCurrentQuestion(); // 重新显示题目以更新选中状态
+          });
+          
+          optionsContainer.appendChild(optionBtn);
         });
-    </script>
+      } else if (currentQuestion.hasOwnProperty('answer') && typeof currentQuestion.answer === 'boolean') {
+        // 判断题
+        questionType.textContent = '判断题';
+        judgeOptions.classList.remove('hidden');
+        
+        // 更新判断按钮状态
+        document.querySelectorAll('.judge-btn').forEach(btn => {
+          const isSelected = currentTest.userAnswers[currentTest.currentIndex] === (btn.dataset.answer === 'true');
+          btn.classList.toggle('ring-2', isSelected);
+          btn.classList.toggle('ring-offset-2', isSelected);
+        });
+        
+        // 为判断按钮添加事件监听
+        document.querySelectorAll('.judge-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            currentTest.userAnswers[currentTest.currentIndex] = btn.dataset.answer === 'true';
+            showCurrentQuestion(); // 重新显示题目以更新选中状态
+          });
+        });
+      } else {
+        // 填空题
+        questionType.textContent = '填空题';
+        answerInputContainer.classList.remove('hidden');
+        
+        // 设置已输入的答案
+        answerInput.value = currentTest.userAnswers[currentTest.currentIndex] || '';
+        
+        // 监听输入事件
+        answerInput.addEventListener('input', () => {
+          currentTest.userAnswers[currentTest.currentIndex] = answerInput.value.trim();
+        });
+      }
+      
+      // 更新按钮状态
+      prevQuestionBtn.disabled = currentTest.currentIndex === 0;
+      
+      // 最后一题显示提交按钮
+      if (currentTest.currentIndex === currentTest.questions.length - 1) {
+        submitTestBtn.classList.remove('hidden');
+      } else {
+        submitTestBtn.classList.add('hidden');
+      }
+      
+      // 如果已经答过这道题，显示查看答案按钮
+      if (currentTest.answeredQuestions[currentTest.currentIndex] !== null) {
+        checkAnswerBtn.classList.remove('hidden');
+        nextQuestionBtn.textContent = '下一题 <i class="fa fa-arrow-right mr-1"></i>';
+      }
+    }
+
+    // 更新进度
+    function updateProgress() {
+      const progress = ((currentTest.currentIndex + 1) / currentTest.questions.length) * 100;
+      progressFill.style.width = `${progress}%`;
+      currentQuestionEl.textContent = currentTest.currentIndex + 1;
+      currentScoreEl.textContent = currentTest.score;
+    }
+
+    // 开始计时器
+    function startTimer() {
+      // 40分钟倒计时（单位：秒）
+      let totalSeconds = 40 * 60;
+      
+      if (currentTest.timer) {
+        clearInterval(currentTest.timer);
+      }
+      
+      currentTest.timer = setInterval(() => {
+        totalSeconds--;
+        
+        // 计算分和秒
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        
+        // 更新显示
+        timeRemainingEl.textContent = `剩余时间: ${minutes}分${seconds < 10 ? '0' + seconds : seconds}秒`;
+        
+        // 时间到，自动提交
+        if (totalSeconds <= 0) {
+          clearInterval(currentTest.timer);
+          submitTest();
+        }
+      }, 1000);
+    }
+
+    // 查看答案按钮事件
+    checkAnswerBtn.addEventListener('click', function() {
+      showAnswerFeedback();
+    });
+
+    // 显示答案反馈
+    function showAnswerFeedback() {
+      const currentQuestion = currentTest.questions[currentTest.currentIndex];
+      const userAnswer = currentTest.userAnswers[currentTest.currentIndex];
+      const isCorrect = currentTest.answeredQuestions[currentTest.currentIndex];
+      
+      // 显示反馈区域
+      answerFeedback.classList.add('show');
+      
+      // 设置反馈头部
+      if (isCorrect) {
+        feedbackHeader.innerHTML = '<i class="fa fa-check-circle text-green-500 mr-2"></i>回答正确！';
+        answerFeedback.classList.remove('border-l-red-500');
+        answerFeedback.classList.add('border-l-green-500');
+      } else {
+        feedbackHeader.innerHTML = '<i class="fa fa-times-circle text-red-500 mr-2"></i>回答错误！';
+        answerFeedback.classList.remove('border-l-green-500');
+        answerFeedback.classList.add('border-l-red-500');
+      }
+      
+      // 设置反馈内容
+      feedbackContent.innerHTML = '';
+      
+      if (currentQuestion.options) {
+        // 选择题
+        let optionsHtml = '<div class="font-medium mb-1">选项解析：</div>';
+        currentQuestion.options.forEach(option => {
+          const isCorrect = option.charAt(0) === currentQuestion.answer;
+          const isUserAnswer = option.charAt(0) === userAnswer;
+          
+          let optionClass = '';
+          let icon = '';
+          
+          if (isCorrect) {
+            optionClass = 'text-green-500';
+            icon = '<i class="fa fa-check mr-1"></i>';
+          } else if (isUserAnswer) {
+            optionClass = 'text-red-500';
+            icon = '<i class="fa fa-times mr-1"></i>';
+          }
+          
+          optionsHtml += `<div class="${optionClass}">${icon}${option}</div>`;
+        });
+        
+        feedbackContent.innerHTML = `
+          <div>
+            <span class="font-medium">你的答案：</span>
+            <span class="${isCorrect ? 'text-green-500' : 'text-red-500'}">${userAnswer || '未作答'}</span>
+          </div>
+          <div>
+            <span class="font-medium">正确答案：</span>
+            <span class="text-green-500">${currentQuestion.answer}</span>
+          </div>
+          ${optionsHtml}
+        `;
+      } else if (currentQuestion.hasOwnProperty('answer') && typeof currentQuestion.answer === 'boolean') {
+        // 判断题
+        feedbackContent.innerHTML = `
+          <div>
+            <span class="font-medium">你的答案：</span>
+            <span class="${isCorrect ? 'text-green-500' : 'text-red-500'}">${userAnswer ? '正确' : '错误'}</span>
+          </div>
+          <div>
+            <span class="font-medium">正确答案：</span>
+            <span class="text-green-500">${currentQuestion.answer ? '正确' : '错误'}</span>
+          </div>
+        `;
+      } else {
+        // 填空题
+        feedbackContent.innerHTML = `
+          <div>
+            <span class="font-medium">你的答案：</span>
+            <span class="${isCorrect ? 'text-green-500' : 'text-red-500'}">${userAnswer || '未作答'}</span>
+          </div>
+          <div>
+            <span class="font-medium">正确答案：</span>
+            <span class="text-green-500">${currentQuestion.answer}</span>
+          </div>
+        `;
+      }
+      
+      // 设置解析
+      feedbackExplanation.innerHTML = `<i class="fa fa-info-circle mr-1"></i>知识点解析：${currentQuestion.explanation || '暂无解析'}`;
+    }
+
+    // 下一题
+    nextQuestionBtn.addEventListener('click', () => {
+      const currentIndex = currentTest.currentIndex;
+      const currentQuestion = currentTest.questions[currentIndex];
+      
+      // 如果还没答过这道题，先验证答案
+      if (currentTest.answeredQuestions[currentIndex] === null) {
+        // 检查是否已答题
+        if (currentTest.userAnswers[currentIndex] === null) {
+          alert('请先回答当前题目！');
+          return;
+        }
+        
+        // 验证答案
+        let isCorrect = false;
+        
+        if (currentQuestion.options) {
+          // 选择题
+          isCorrect = currentTest.userAnswers[currentIndex] === currentQuestion.answer;
+        } else if (currentQuestion.hasOwnProperty('answer') && typeof currentQuestion.answer === 'boolean') {
+          // 判断题
+          isCorrect = currentTest.userAnswers[currentIndex] === currentQuestion.answer;
+        } else {
+          // 填空题（模糊匹配，忽略空格和标点）
+          const userAnswer = (currentTest.userAnswers[currentIndex] || '').replace(/[\s，。, .]/g, '');
+          const correctAnswer = currentQuestion.answer.replace(/[\s，。, .]/g, '');
+          isCorrect = userAnswer === correctAnswer;
+        }
+        
+        // 保存答题结果
+        currentTest.answeredQuestions[currentIndex] = isCorrect;
+        
+        // 更新总分
+        if (isCorrect) {
+          currentTest.score++;
+        }
+        
+        // 显示答案反馈
+        showAnswerFeedback();
+        
+        // 更新按钮状态
+        checkAnswerBtn.classList.remove('hidden');
+        nextQuestionBtn.textContent = '下一题 <i class="fa fa-arrow-right mr-1"></i>';
+        
+        // 更新进度
+        updateProgress();
+        
+        return;
+      }
+      
+      // 最后一题，提交测试
+      if (currentIndex === currentTest.questions.length - 1) {
+        submitTest();
+        return;
+      }
+      
+      // 下一题
+      currentTest.currentIndex++;
+      showCurrentQuestion();
+      updateProgress();
+      
+      // 如果是填空题，设置焦点
+      if (currentTest.questions[currentTest.currentIndex].question.includes('（__________）')) {
+        setTimeout(() => answerInput.focus(), 100);
+      }
+    });
+
+    // 上一题
+    prevQuestionBtn.addEventListener('click', () => {
+      if (currentTest.currentIndex > 0) {
+        currentTest.currentIndex--;
+        showCurrentQuestion();
+        updateProgress();
+        
+        // 如果已经答过这道题，显示答案反馈
+        if (currentTest.answeredQuestions[currentTest.currentIndex] !== null) {
+          showAnswerFeedback();
+        }
+        
+        // 如果是填空题，设置焦点
+        if (currentTest.questions[currentTest.currentIndex].question.includes('（__________）')) {
+          setTimeout(() => answerInput.focus(), 100);
+        }
+      }
+    });
+
+    // 提交测试
+    submitTestBtn.addEventListener('click', submitTest);
+
+    function submitTest() {
+      // 停止计时器
+      if (currentTest.timer) {
+        clearInterval(currentTest.timer);
+        currentTest.timer = null;
+      }
+      
+      // 检查是否有未答题
+      let unAnsweredCount = 0;
+      currentTest.questions.forEach((q, index) => {
+        if (currentTest.userAnswers[index] === null) {
+          unAnsweredCount++;
+        }
+      });
+      
+      if (unAnsweredCount > 0 && !confirm(`还有${unAnsweredCount}道题目未回答，确定要提交吗？`)) {
+        return;
+      }
+      
+      // 计算最终得分和错题
+      let correctCount = 0;
+      const wrongQuestions = [];
+      
+      currentTest.questions.forEach((question, index) => {
+        let isCorrect = false;
+        
+        if (currentTest.answeredQuestions[index] !== null) {
+          // 使用已验证的结果
+          isCorrect = currentTest.answeredQuestions[index];
+        } else {
+          // 验证未答题的结果
+          if (question.options) {
+            // 选择题
+            isCorrect = currentTest.userAnswers[index] === question.answer;
+          } else if (question.hasOwnProperty('answer') && typeof question.answer === 'boolean') {
+            // 判断题
+            isCorrect = currentTest.userAnswers[index] === question.answer;
+          } else {
+            // 填空题
+            const userAnswer = (currentTest.userAnswers[index] || '').replace(/[\s，。, .]/g, '');
+            const correctAnswer = question.answer.replace(/[\s，。, .]/g, '');
+            isCorrect = userAnswer === correctAnswer;
+          }
+        }
+        
+        if (isCorrect) {
+          correctCount++;
+        } else {
+          wrongQuestions.push({
+            ...question,
+            userAnswer: currentTest.userAnswers[index]
+          });
+        }
+        
+        // 保存答题结果
+        question.userAnswer = currentTest.userAnswers[index];
+        question.isCorrect = isCorrect;
+      });
+      
+      currentTest.score = correctCount;
+      
+      // 保存错题到本地存储
+      saveWrongQuestions(wrongQuestions);
+      
+      // 显示测试结果
+      showTestResult(correctCount, wrongQuestions);
+      
+      // 切换到结果页面
+      testSection.classList.add('hidden');
+      testResultSection.classList.remove('hidden');
+    }
+
+    // 显示测试结果
+    function showTestResult(correctCount, wrongQuestions) {
+      const totalCount = currentTest.questions.length;
+      const wrongCount = wrongQuestions.length;
+      const accuracy = Math.round((correctCount / totalCount) * 100);
+      
+      // 更新结果统计
+      totalScoreEl.textContent = correctCount;
+      correctCountEl.textContent = correctCount;
+      wrongCountEl.textContent = wrongCount;
+      accuracyEl.textContent = `${accuracy}%`;
+      
+      // 更新错题预览
+      wrongPreviewEl.innerHTML = '';
+      
+      if (wrongQuestions.length === 0) {
+        wrongPreviewEl.innerHTML = '<p class="text-green-500"><i class="fa fa-check-circle mr-2"></i>恭喜！本次测试没有错题</p>';
+        return;
+      }
+      
+      // 显示前10道错题
+      const previewCount = Math.min(wrongQuestions.length, 10);
+      
+      for (let i = 0; i < previewCount; i++) {
+        const question = wrongQuestions[i];
+        const questionEl = document.createElement('div');
+        questionEl.className = 'p-4 border rounded-lg incorrect';
+        
+        let questionHtml = `<p class="font-medium mb-2">${i + 1}. ${question.question}</p>`;
+        
+        if (question.options) {
+          // 选择题
+          questionHtml += '<div class="space-y-1 mb-2">';
+          question.options.forEach(option => {
+            const isCorrect = option.charAt(0) === question.answer;
+            const isUserAnswer = option.charAt(0) === question.userAnswer;
+            
+            let optionClass = '';
+            if (isCorrect) optionClass = 'text-green-500';
+            else if (isUserAnswer) optionClass = 'text-red-500';
+            
+            questionHtml += `<div class="${optionClass}">${option}</div>`;
+          });
+          questionHtml += '</div>';
+        } else if (question.hasOwnProperty('answer') && typeof question.answer === 'boolean') {
+          // 判断题
+          questionHtml += `<div class="mb-2">
+            <span class="text-red-500">你的答案：${question.userAnswer ? '正确' : '错误'}</span><br>
+            <span class="text-green-500">正确答案：${question.answer ? '正确' : '错误'}</span>
+          </div>`;
+        } else {
+          // 填空题
+          questionHtml += `<div class="mb-2">
+            <span class="text-red-500">你的答案：${question.userAnswer || '未答'}</span><br>
+            <span class="text-green-500">正确答案：${question.answer}</span>
+          </div>`;
+        }
+        
+        if (question.explanation) {
+          questionHtml += `<div class="text-sm text-gray-600 mt-2">
+            <i class="fa fa-info-circle mr-1"></i>${question.explanation}
+          </div>`;
+        }
+        
+        questionEl.innerHTML = questionHtml;
+        wrongPreviewEl.appendChild(questionEl);
+      }
+      
+      if (wrongQuestions.length > 10) {
+        const moreEl = document.createElement('p');
+        moreEl.className = 'text-center text-sm text-gray-500 mt-4';
+        moreEl.innerHTML = `<a href="#wrong-questions" class="text-primary hover:underline">
+          查看全部${wrongQuestions.length}道错题 <i class="fa fa-angle-right ml-1"></i>
+        </a>`;
+        wrongPreviewEl.appendChild(moreEl);
+      }
+    }
+
+    // 重新测试
+    restartTestBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 重置测试状态
+      currentTest = {
+        questions: [],
+        currentIndex: 0,
+        userAnswers: [],
+        answeredQuestions: [],
+        score: 0,
+        startTime: null,
+        timer: null
+      };
+      
+      // 切换到测试页面并初始化
+      testResultSection.classList.add('hidden');
+      testSection.classList.remove('hidden');
+      initTest();
+    });
+
+    // 保存错题到本地存储
+    function saveWrongQuestions(wrongQuestions) {
+      if (wrongQuestions.length === 0) return;
+      
+      // 获取已有的错题
+      let existingWrong = JSON.parse(localStorage.getItem('partyWrongQuestions')) || [];
+      
+      // 添加新错题（去重）
+      wrongQuestions.forEach(newQ => {
+        // 检查是否已存在相同题目
+        const isDuplicate = existingWrong.some(existingQ => 
+          existingQ.id === newQ.id && 
+          JSON.stringify(existingQ) === JSON.stringify(newQ)
+        );
+        
+        if (!isDuplicate) {
+          existingWrong.push({
+            ...newQ,
+            addedTime: new Date().toISOString()
+          });
+        }
+      });
+      
+      // 保存到本地存储
+      localStorage.setItem('partyWrongQuestions', JSON.stringify(existingWrong));
+    }
+
+    // 加载错题
+    function loadWrongQuestions() {
+      // 获取本地存储的错题
+      const wrongQuestions = JSON.parse(localStorage.getItem('partyWrongQuestions')) || [];
+      
+      // 更新错题统计
+      totalWrongCountEl.textContent = wrongQuestions.length;
+      
+      const choiceWrong = wrongQuestions.filter(q => q.options);
+      const judgeWrong = wrongQuestions.filter(q => q.hasOwnProperty('answer') && typeof q.answer === 'boolean');
+      const fillWrong = wrongQuestions.filter(q => q.question.includes('（__________）'));
+      
+      wrongChoicesEl.textContent = choiceWrong.length;
+      wrongJudgesEl.textContent = judgeWrong.length;
+      wrongFillsEl.textContent = fillWrong.length;
+      
+      // 更新错题列表
+      wrongQuestionsList.innerHTML = '';
+      
+      if (wrongQuestions.length === 0) {
+        wrongQuestionsList.innerHTML = `
+          <div class="text-center text-gray-500 py-8">
+            <i class="fa fa-check-circle text-green-500 text-4xl mb-2"></i>
+            <p>太棒了！暂无错题记录</p>
+            <p class="text-sm mt-2">开始测试并做错题目后，将在这里显示</p>
+          </div>
+        `;
+        return;
+      }
+      
+      // 按题目类型分组显示
+      if (choiceWrong.length > 0) {
+        const choiceGroup = createQuestionGroup('选择题错题', choiceWrong);
+        wrongQuestionsList.appendChild(choiceGroup);
+      }
+      
+      if (judgeWrong.length > 0) {
+        const judgeGroup = createQuestionGroup('判断题错题', judgeWrong);
+        wrongQuestionsList.appendChild(judgeGroup);
+      }
+      
+      if (fillWrong.length > 0) {
+        const fillGroup = createQuestionGroup('填空题错题', fillWrong);
+        wrongQuestionsList.appendChild(fillGroup);
+      }
+    }
+
+    // 创建题目分组
+    function createQuestionGroup(title, questions) {
+      const groupEl = document.createElement('div');
+      groupEl.className = 'mb-8';
+      
+      const titleEl = document.createElement('h3');
+      titleEl.className = 'text-lg font-bold mb-4 flex items-center';
+      titleEl.innerHTML = `<i class="fa fa-list mr-2 text-primary"></i>${title}（${questions.length}道）`;
+      
+      const questionsEl = document.createElement('div');
+      questionsEl.className = 'space-y-4';
+      
+      // 添加题目
+      questions.forEach((question, index) => {
+        const questionEl = document.createElement('div');
+        questionEl.className = 'p-4 border rounded-lg incorrect';
+        
+        let questionHtml = `<p class="font-medium mb-2">${index + 1}. ${question.question}</p>`;
+        
+        if (question.options) {
+          // 选择题
+          questionHtml += '<div class="space-y-1 mb-2">';
+          question.options.forEach(option => {
+            const isCorrect = option.charAt(0) === question.answer;
+            const isUserAnswer = option.charAt(0) === question.userAnswer;
+            
+            let optionClass = '';
+            if (isCorrect) optionClass = 'text-green-500';
+            else if (isUserAnswer) optionClass = 'text-red-500';
+            
+            questionHtml += `<div class="${optionClass}">${option}</div>`;
+          });
+          questionHtml += '</div>';
+        } else if (question.hasOwnProperty('answer') && typeof question.answer === 'boolean') {
+          // 判断题
+          questionHtml += `<div class="mb-2">
+            <span class="text-red-500">你的答案：${question.userAnswer ? '正确' : '错误'}</span><br>
+            <span class="text-green-500">正确答案：${question.answer ? '正确' : '错误'}</span>
+          </div>`;
+        } else {
+          // 填空题
+          questionHtml += `<div class="mb-2">
+            <span class="text-red-500">你的答案：${question.userAnswer || '未答'}</span><br>
+            <span class="text-green-500">正确答案：${question.answer}</span>
+          </div>`;
+        }
+        
+        if (question.explanation) {
+          questionHtml += `<div class="text-sm text-gray-600 mt-2">
+            <i class="fa fa-info-circle mr-1"></i>${question.explanation}
+          </div>`;
+        }
+        
+        // 添加重做按钮
+        questionHtml += `<div class="mt-3">
+          <button class="text-sm bg-primary text-white px-3 py-1 rounded redo-question btn-hover" 
+                  data-question='${JSON.stringify(question)}'>
+            <i class="fa fa-refresh mr-1"></i>重做此题
+          </button>
+          <button class="text-sm bg-red-500 text-white px-3 py-1 rounded ml-2 delete-question btn-hover" 
+                  data-question-id="${question.id}">
+            <i class="fa fa-trash mr-1"></i>删除此题
+          </button>
+        </div>`;
+        
+        questionEl.innerHTML = questionHtml;
+        questionsEl.appendChild(questionEl);
+      });
+      
+      groupEl.appendChild(titleEl);
+      groupEl.appendChild(questionsEl);
+      
+      return groupEl;
+    }
+
+    // 清空错题
+    clearWrongBtn.addEventListener('click', function() {
+      if (confirm('确定要清空所有错题记录吗？此操作不可恢复！')) {
+        localStorage.removeItem('partyWrongQuestions');
+        loadWrongQuestions();
+      }
+    });
+
+    // 错题重做
+    reviewWrongBtn.addEventListener('click', function() {
+      const wrongQuestions = JSON.parse(localStorage.getItem('partyWrongQuestions')) || [];
+      
+      if (wrongQuestions.length === 0) {
+        alert('暂无错题可重做');
+        return;
+      }
+      
+      // 准备错题重做测试
+      currentTest.questions = [...wrongQuestions]
+        .sort(() => Math.random() - 0.5);
+      
+      currentTest.currentIndex = 0;
+      currentTest.userAnswers = Array(currentTest.questions.length).fill(null);
+      currentTest.answeredQuestions = Array(currentTest.questions.length).fill(null);
+      currentTest.score = 0;
+      currentTest.startTime = new Date();
+      
+      // 启动计时器
+      startTimer();
+      
+      // 显示第一题
+      showCurrentQuestion();
+      
+      // 更新进度
+      updateProgress();
+      
+      // 切换到测试页面
+      wrongQuestionsSection.classList.add('hidden');
+      testSection.classList.remove('hidden');
+    });
+
+    // 事件委托 - 处理错题列表中的按钮点击
+    wrongQuestionsList.addEventListener('click', function(e) {
+      // 重做此题
+      if (e.target.closest('.redo-question')) {
+        const btn = e.target.closest('.redo-question');
+        const question = JSON.parse(btn.dataset.question);
+        
+        // 准备单个题目测试
+        currentTest.questions = [question];
+        currentTest.currentIndex = 0;
+        currentTest.userAnswers = [null];
+        currentTest.answeredQuestions = [null];
+        currentTest.score = 0;
+        currentTest.startTime = new Date();
+        
+        // 启动计时器（5分钟）
+        if (currentTest.timer) {
+          clearInterval(currentTest.timer);
+        }
+        
+        let totalSeconds = 5 * 60;
+        currentTest.timer = setInterval(() => {
+          totalSeconds--;
+          const minutes = Math.floor(totalSeconds / 60);
+          const seconds = totalSeconds % 60;
+          timeRemainingEl.textContent = `剩余时间: ${minutes}分${seconds < 10 ? '0' + seconds : seconds}秒`;
+          
+          if (totalSeconds <= 0) {
+            clearInterval(currentTest.timer);
+            submitTest();
+          }
+        }, 1000);
+        
+        // 显示题目
+        showCurrentQuestion();
+        updateProgress();
+        
+        // 切换到测试页面
+        wrongQuestionsSection.classList.add('hidden');
+        testSection.classList.remove('hidden');
+      }
+      
+      // 删除此题
+      if (e.target.closest('.delete-question')) {
+        const btn = e.target.closest('.delete-question');
+        const questionId = btn.dataset.question-id;
+        
+        if (confirm('确定要删除这道错题吗？')) {
+          let wrongQuestions = JSON.parse(localStorage.getItem('partyWrongQuestions')) || [];
+          wrongQuestions = wrongQuestions.filter(q => q.id != questionId);
+          
+          localStorage.setItem('partyWrongQuestions', JSON.stringify(wrongQuestions));
+          loadWrongQuestions();
+        }
+      }
+    });
+
+    // 页面加载完成后初始化
+    document.addEventListener('DOMContentLoaded', function() {
+      // 如果URL中有锚点，跳转到对应区域
+      if (window.location.hash) {
+        const targetSection = document.querySelector(window.location.hash);
+        if (targetSection) {
+          // 隐藏所有区域
+          homeSection.classList.add('hidden');
+          testSection.classList.add('hidden');
+          testResultSection.classList.add('hidden');
+          wrongQuestionsSection.classList.add('hidden');
+          
+          // 显示目标区域
+          targetSection.classList.remove('hidden');
+          
+          // 如果是错题集区域，加载错题
+          if (window.location.hash === '#wrong-questions') {
+            loadWrongQuestions();
+          }
+        }
+      }
+    });
+  </script>
 </body>
-
 </html>
